@@ -1,0 +1,120 @@
+/* @src/components/Modal.module.css */
+
+.dark-bg {
+  background-color: rgba(0, 0, 0, 0.75);
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+.generated-numbers {
+  /* border: 1px solid yellow; */
+  background: -webkit-linear-gradient(
+    hsla(111, 97%, 49%, 0.75) 20%,
+    hsla(25, 97%, 49%, 0.75),
+    hsla(0, 98%, 49%, 0.933) 90%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--light-green);
+  font-size: clamp(1.5rem, 15vw, 3.5rem);
+}
+.reward-text {
+  color: var(--light-green);
+  /* font-size:clamp(0.75rem, 10vw, 1.2rem) */
+  padding: 0.75rem;
+  margin: 0;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background: var(--deeper-green);
+  width: clamp(15rem, 85%, 25rem);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 153, 126, 0.15);
+  border-radius: 0.5rem;
+  padding-block: 1.5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  /* border: 2px solid blue; */
+}
+
+@supports (backdrop-filter: blur(6.5px)) {
+  .modal-container {
+    background: rgba(0, 103, 84, 0.25);
+    backdrop-filter: blur(6.5px);
+  }
+}
+.modal-text {
+  aspect-ratio: 2/1.65;
+  /* width: clamp(15rem, 50vw, 30rem); */
+}
+
+.modal-text h2 {
+  margin: 0;
+}
+
+.modal-content {
+  padding-block: clamp(1rem, 10vh, 1.5rem);
+  text-align: center;
+  /* border: 1px solid red; */
+  width: 100%;
+}
+.modal-content h2 {
+  font-size: clamp(0.5rem, 8vw, 1.2rem);
+}
+.modal-content h2 span {
+  font-size: clamp(1rem, 15vw, 2rem);
+}
+.play-again {
+  padding-block-end: clamp(1rem, 10vh, 1.5rem);
+}
+.modal-actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  gap: 0.75rem;
+}
+.modal-actions button {
+  border-radius: 0.5rem;
+  width: 6rem;
+  padding: 0.75rem 0.75rem;
+  text-align: center;
+}
+.no-btn {
+  background: var(--btn-deep-green-red-gradient);
+  opacity: 0.75;
+  font-size: inherit;
+}
+
+.no-btn:hover {
+  background: var(--btn-deep-green-red-gradient);
+  opacity: 1;
+}
+
+.yes-btn {
+  background: var(--sky-blue-black-gradient);
+}
+
+.yes-btn:hover {
+  background: var(--blue-black-gradient);
+}
+/* ========================*/
+/* ==== LARGE SCREENS ==== */
+/* ========================*/
+@media (min-width: 600px) {
+  .modal-container {
+    padding: clamp(1rem, 10vh, 2.5rem);
+    width: clamp(30rem, 30vw, 35rem);
+  }
+}
