@@ -11,14 +11,14 @@ contract VRFv2Consumer is VRFConsumerBaseV2 {
   // Your subscription ID.
   uint64 s_subscriptionId;
 
-  // Rinkeby coordinator. For other networks,
+  // Fantom Testnet coordinator. For other networks,
   // see https://docs.chain.link/docs/vrf-contracts/#configurations
-  address vrfCoordinator = 	0xbd13f08b8352a3635218ab9418e340c60d6eb418;
+  address vrfCoordinator = 	0xbd13f08b8352A3635218ab9418E340c60d6Eb418;
 
   // The gas lane to use, which specifies the maximum gas price to bump to.
   // For a list of available gas lanes on each network,
   // see https://docs.chain.link/docs/vrf-contracts/#configurations
-  bytes32 keyHash = 0x121a143066e0f2f08b620784af77cccb35c6242460b4a8ee251b4b4416abaebd4;
+  bytes32 keyHash = 0x121a143066e0f2f08b620784af77cccb35c6242460b4a8ee251b4b416abaebd4;
   //0x4b09e658ed251bcafeebbc69400383d49f344ace09b9576fe248bb02c003fe9f;
 
   // Depends on the number of requested values that you want sent to the
@@ -37,7 +37,7 @@ contract VRFv2Consumer is VRFConsumerBaseV2 {
   uint32 numWords =  2;
 
   uint256[] public s_randomWords;
-  uint256 public s_requestId;
+  uint256 public s_requestId; 
   address s_owner;
 
   constructor(uint64 subscriptionId) VRFConsumerBaseV2(vrfCoordinator) {

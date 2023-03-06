@@ -1,18 +1,16 @@
-import { ethers } from "hardhat";
+const { ethers } = require("hardhat");
 
 async function main() {
-  const VRF = await ethers.getContractAt(
-    "VRFv2Consumer",
-    "0x73fDB6c756fEF146972eeB277373b1638cc6d215"
-  );
-  // const VRF = await Greeter.deploy();
+  const VRF = await ethers.getContractFactory("VRFv2Consumer");
+  const vrf = await VRF.deploy("171");
 
-  // await VRF.deployed();
-  await VRF.requestRandomWords();
+  await vrf.deployed();
+  console.log("The VRF was deployed at", vrf.address);
+  await vrf.requestRandomWords();
   // await VRF.fulfillRandomWords();
   // console.log(VRF.s_randomWords(0));
   // console.log("DOW deployed to:", VRF.address);
-  console.log(await VRF.s_requestId());
+  console.log(await vrf.s_requestId());
 }
 
 // We recommend this pattern to be able to use async/await everywhere

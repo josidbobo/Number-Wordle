@@ -17,6 +17,7 @@ contract DOW is ERC20 {
     mapping(address => bool) playerAdded;
     mapping(address => bool) claimTokens;
     mapping(address => mapping(uint256 => bool)) playerPlaying;
+
     // --------------------------------Events --------------------------------
     event PlayerNumbers(uint256[] compNum);
 
@@ -70,8 +71,6 @@ contract DOW is ERC20 {
         randNum = vrf.s_requestId();
     }
 
-    // VRF Address = 0x2e9F028395cd1d925e6A8215F0Af1bD30858ef53
-
     function vrfNumbers() internal {
         uint256 _rand = randNum >> randomNumber();
         bool matches = false;
@@ -86,6 +85,7 @@ contract DOW is ERC20 {
         }
     }
 
+    // To get the keccak256 of a number to be used for random generation
     function randomNumber() internal returns (uint256) {
         uint256 mod = 10;
         omega += 1;
@@ -170,7 +170,6 @@ contract DOW is ERC20 {
   //   require (playerAdded[msg.sender], "Player not Found");
   //   _transfer(address(this),msg.sender, _amount);
   // }
-
 
   function checkStreak () external view returns (Player memory) {
     Player storage o = PlayerStruct[msg.sender];
