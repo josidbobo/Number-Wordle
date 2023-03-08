@@ -5,9 +5,10 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import {VRFv2Consumer} from "./VRFv2Consumer.sol";
 
-contract DOW is ERC20 {
+contract NumberWordle is ERC20 {
     // --------------------------------Variables--------------------------------
     uint256 omega;
+    bool entered;
     uint256 public randNum;
     address owner;
     VRFv2Consumer vrf;
@@ -41,8 +42,10 @@ contract DOW is ERC20 {
         uint96 wins;
     }
 
+    // 0x7E1f630719a45743636b96419Fe0E77e836c43ce vrf
+
     // --------------------------------Constructor--------------------------------
-    constructor(address VRFaddress) ERC20("Dead or Wounded", "DOW") {
+    constructor(address VRFaddress) ERC20("Number Wordle", "NW") {
         owner = msg.sender;
         vrf = VRFv2Consumer(VRFaddress);
         uint256 totalSupply = 10000000000000000000000000000;
@@ -54,6 +57,13 @@ contract DOW is ERC20 {
     modifier onlyOwner() {
         if (msg.sender != owner) revert NotOwner();
         _;
+    }
+
+    modifier nonreentrancy(){
+      require(entered = false, "Already entered");
+      entered = true;
+      _;
+      entered = false;
     }
  
     // --------------------------------Functions--------------------------------
@@ -165,11 +175,11 @@ contract DOW is ERC20 {
     }
   }
 
-  // function claimWonTokens (uint256 _amount) external {
-  //   if( _amount < 0) revert InsufficientTokens();
-  //   require (playerAdded[msg.sender], "Player not Found");
-  //   _transfer(address(this),msg.sender, _amount);
-  // }
+  function claimWonTokens (uint256 _amount) nonreentrancy external {
+    if( _amount < 0) revert InsufficientTokens();
+    require (playerAdded[msg.sender], "Player not Found");
+    _transfer(address(this),msg.sender, _amount);
+  }
 
   function checkStreak () external view returns (Player memory) {
     Player storage o = PlayerStruct[msg.sender];

@@ -68,9 +68,9 @@ const App = () => {
       walletconnect: {
         package: WalletConnectProvider,
         options: {
-          alchemyId: process.env.REACT_APP_ALCHEMY_KEY,
+          alchemyId: process.env.ALCHEMY_KEY,
           rpc: {
-            80001: process.env.REACT_APP_MUMBAI_RPC_URL,
+            80001: process.env.FANTHOM_URL,
           },
         },
         qrcode: true,
@@ -90,8 +90,8 @@ const App = () => {
         package: CoinbaseWalletSDK,
         options: {
           appName: "Dead or Wounded",
-          alchemyId: process.env.REACT_APP_ALCHEMY_KEY,
-          rpc: process.env.REACT_APP_MUMBAI_RPC_URL,
+          alchemyId: process.env.ALCHEMY_KEY,
+          rpc: process.env.FANTHOM_URL,
           chainId: 80001,
           darkMode: true,
         },
