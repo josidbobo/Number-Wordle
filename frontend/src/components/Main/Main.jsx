@@ -26,9 +26,9 @@ const Main = ({
     <main>
       <div className="dow-text flicker">
         <div className="dow-text-border" />
-        <h1 className="dead-text">Dead</h1>
-        <p className="dow-text-or">or</p>
-        <h1>Wounded</h1>
+        <h1 className="dead-text">Number</h1>
+        <p className="dow-text-or">-</p>
+        <h1>Wordle</h1>
         <div className="dow-text-border" />
       </div>
 

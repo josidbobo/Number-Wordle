@@ -5,7 +5,7 @@ async function main() {
     "NumberWordle",
   );
   const greeter = await Greeter.deploy(
-    "0x7E1f630719a45743636b96419Fe0E77e836c43ce"
+  "0xe9595c2b9ED15bbAd67f948D8cB8B6d2BC8e2a36"
   );
 
   // await greeter.deployed();

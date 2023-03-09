@@ -70,7 +70,7 @@ const App = () => {
         options: {
           alchemyId: process.env.ALCHEMY_KEY,
           rpc: {
-            80001: process.env.FANTHOM_URL,
+            0xfa2: process.env.FANTHOM_URL,
           },
         },
         qrcode: true,
@@ -89,10 +89,10 @@ const App = () => {
       coinbasewallet: {
         package: CoinbaseWalletSDK,
         options: {
-          appName: "Dead or Wounded",
+          appName: "NumberWordle",
           alchemyId: process.env.ALCHEMY_KEY,
           rpc: process.env.FANTHOM_URL,
-          chainId: 80001,
+          chainId: 0xfa2,
           darkMode: true,
         },
       },
@@ -138,7 +138,7 @@ const App = () => {
       setProxy(web3Proxy);
       setProvider(provider);
       // console.log(web3Proxy);
-      if (chainData.chainId !== 80001) {
+      if (chainData.chainId !== 0xfa2) {
         alert(
           "You are currently connected to an unsupported network, please switch to Polygon Mumbai Testnet"
         );
@@ -308,7 +308,7 @@ const App = () => {
           const networkID = await proxy.request({
             method: "eth_chainId",
           });
-          if (Number(networkID) !== 80001) {
+          if (Number(networkID) !== 0xfa2) {
             setConnected(false);
             setUserBalance({
               DOWTokenBalance: 0,
@@ -338,7 +338,7 @@ const App = () => {
         const networkID = await proxy.request({
           method: "eth_chainId",
         });
-        if (Number(networkID) !== 80001) {
+        if (Number(networkID) !== 0xfa2) {
           alert(
             "You are currently connected to an unsupported network, please switch to Polygon Mumbai Testnet"
           );
