@@ -42,7 +42,7 @@ contract NumberWordle is ERC20 {
         uint96 wins;
     }
 
-    // 0x7E1f630719a45743636b96419Fe0E77e836c43ce vrf
+    // 0xe9595c2b9ED15bbAd67f948D8cB8B6d2BC8e2a36 vrf
 
     // --------------------------------Constructor--------------------------------
     constructor(address VRFaddress) ERC20("Number Wordle", "NW") {

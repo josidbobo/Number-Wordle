@@ -13,6 +13,7 @@ async function main() {
     "300000000000000000000",
     "0x6A13b88A2bC7E8226679DFbb60f47FD9C3D93943"
   );
+  
   console.log(await greeter.balanceOf('0x6A13b88A2bC7E8226679DFbb60f47FD9C3D93943'))
   // await greeter.startGame();
 
